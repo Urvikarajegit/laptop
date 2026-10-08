@@ -1,0 +1,116 @@
+/* ==========================================================================
+   ANIMATIONS & GSAP ENHANCEMENTS
+   Custom Cursor, Split Text Reveals, Image Transitions, Magnetics
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CURSOR (Standard, Simple & Responsive)
+   -------------------------------------------------------------------------- */
+
+.custom-cursor-dot,
+.custom-cursor-follower,
+.cursor-text {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. GSAP SPLIT TEXT & REVEAL CLASSES (Char-by-Char & Word)
+   -------------------------------------------------------------------------- */
+
+.split-line, .line {
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+
+.split-word, .word {
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 0.26em;
+  will-change: transform, opacity;
+}
+
+.split-char, .char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Initial invisible state before GSAP activates */
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* --------------------------------------------------------------------------
+   3. IMAGE TRANSITIONS & REVEAL CLIP-PATHS
+   -------------------------------------------------------------------------- */
+
+.image-transition-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-transition-reveal::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.1) 0%, rgba(56, 189, 248, 0.05) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image-transition-reveal:hover::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. MAGNETIC ELEMENTS TRANSITION
+   -------------------------------------------------------------------------- */
+
+.magnetic-item {
+  display: inline-flex;
+  will-change: transform;
+}
+
+.magnetic-card {
+  will-change: transform;
+}
+
+/* --------------------------------------------------------------------------
+   5. BIO PULSES & MICRO ANIMATIONS
+   -------------------------------------------------------------------------- */
+
+@keyframes dnaSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: dnaSpin 20s linear infinite;
+}
+
+/* Smooth Canvas Fade In */
+canvas {
+  transition: opacity 0.5s ease;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

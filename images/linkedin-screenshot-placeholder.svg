@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" width="100%" height="100%">
+  <defs>
+    <linearGradient id="linkedInBanner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077b5"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-2%" y="-2%" width="104%" height="106%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1200" height="700" fill="#f3f2ef" rx="16"/>
+
+  <!-- Top LinkedIn Nav Header -->
+  <rect x="0" y="0" width="1200" height="54" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <rect x="120" y="10" width="34" height="34" rx="4" fill="#0a66c2"/>
+  <text x="137" y="34" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="22" font-weight="800" text-anchor="middle">in</text>
+
+  <!-- Search input -->
+  <rect x="168" y="10" width="280" height="34" rx="4" fill="#edf3f8"/>
+  <text x="184" y="32" fill="#666666" font-family="-apple-system, sans-serif" font-size="13">🔍 Search biotechnology, papers, CRISPR...</text>
+
+  <!-- Nav icons -->
+  <g transform="translate(680, 12)" fill="#666666" font-family="-apple-system, sans-serif" font-size="11">
+    <text x="0" y="16" text-anchor="middle">🏠</text>
+    <text x="0" y="30" text-anchor="middle">Home</text>
+
+    <text x="60" y="16" text-anchor="middle">👥</text>
+    <text x="60" y="30" text-anchor="middle">My Network</text>
+
+    <text x="130" y="16" text-anchor="middle">💼</text>
+    <text x="130" y="30" text-anchor="middle">Jobs</text>
+
+    <text x="195" y="16" text-anchor="middle">💬</text>
+    <text x="195" y="30" text-anchor="middle">Messaging</text>
+
+    <text x="265" y="16" text-anchor="middle">🔔</text>
+    <text x="265" y="30" text-anchor="middle">Notifications</text>
+
+    <circle cx="340" cy="14" r="12" fill="#0284c7"/>
+    <text x="340" y="18" fill="#ffffff" font-size="10" font-weight="700" text-anchor="middle">Me</text>
+    <text x="340" y="30" fill="#666666" text-anchor="middle">Me ▾</text>
+  </g>
+
+  <!-- Main Profile Card Container -->
+  <g transform="translate(120, 75)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="960" height="360" rx="10" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+
+    <!-- Banner Cover -->
+    <rect x="0" y="0" width="960" height="130" rx="10" fill="url(#linkedInBanner)"/>
+    <!-- Decorative DNA wave in banner -->
+    <path d="M0 65 Q 120 20, 240 65 T 480 65 T 720 65 T 960 65" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="3"/>
+    <path d="M0 65 Q 120 110, 240 65 T 480 65 T 720 65 T 960 65" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="3"/>
+    <text x="800" y="40" fill="#ffffff" fill-opacity="0.8" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">🧬 Computational Biology Lab</text>
+
+    <!-- Avatar circle -->
+    <circle cx="85" cy="130" r="60" fill="#ffffff" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="85" cy="130" r="56" fill="#e0f2fe"/>
+    <!-- Initials / Silhouette -->
+    <circle cx="85" cy="115" r="24" fill="#0284c7"/>
+    <path d="M50 165 C50 142 65 135 85 135 C105 135 120 142 120 165 Z" fill="#0369a1"/>
+
+    <!-- User Information -->
+    <text x="165" y="165" fill="#181818" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" font-weight="700">Urvika</text>
+    <rect x="250" y="150" width="18" height="18" rx="9" fill="#0a66c2"/>
+    <text x="259" y="163" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="800" text-anchor="middle">✓</text>
+    <text x="280" y="164" fill="#666666" font-family="-apple-system, sans-serif" font-size="14">(She/Her)</text>
+
+    <text x="165" y="195" fill="#181818" font-family="-apple-system, sans-serif" font-size="15" font-weight="500">Biotechnology Undergraduate | Computational Biology &amp; CRISPR Researcher</text>
+    <text x="165" y="222" fill="#666666" font-family="-apple-system, sans-serif" font-size="13">Department of Biotechnology &amp; Genetic Engineering • School of Bioengineering</text>
+    <text x="165" y="245" fill="#666666" font-family="-apple-system, sans-serif" font-size="13">India • <tspan fill="#0a66c2" font-weight="600">Contact info</tspan></text>
+    <text x="165" y="270" fill="#0a66c2" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">500+ connections</text>
+
+    <!-- Right Education preview in profile -->
+    <g transform="translate(680, 150)">
+      <text x="0" y="18" fill="#181818" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">🏫 School of Bioengineering</text>
+      <text x="0" y="38" fill="#666666" font-family="-apple-system, sans-serif" font-size="12">B.Tech in Biotechnology</text>
+      <text x="0" y="70" fill="#181818" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">🔬 Center for Cellular Genomics</text>
+      <text x="0" y="90" fill="#666666" font-family="-apple-system, sans-serif" font-size="12">Computational Genomics Intern</text>
+    </g>
+
+    <!-- Call to Action Buttons -->
+    <rect x="165" y="300" width="130" height="34" rx="17" fill="#0a66c2"/>
+    <text x="230" y="322" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Connect</text>
+
+    <rect x="310" y="300" width="120" height="34" rx="17" fill="none" stroke="#0a66c2" stroke-width="1.5"/>
+    <text x="370" y="322" fill="#0a66c2" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Message</text>
+
+    <rect x="445" y="300" width="90" height="34" rx="17" fill="none" stroke="#666666" stroke-width="1"/>
+    <text x="490" y="322" fill="#666666" font-family="-apple-system, sans-serif" font-size="14" font-weight="600" text-anchor="middle">More</text>
+  </g>
+
+  <!-- Secondary Activity & About Snippet -->
+  <g transform="translate(120, 455)" filter="url(#cardShadow)">
+    <rect x="0" y="0" width="960" height="175" rx="10" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="25" y="32" fill="#181818" font-family="-apple-system, sans-serif" font-size="17" font-weight="700">About</text>
+    <text x="25" y="62" fill="#333333" font-family="-apple-system, sans-serif" font-size="13" line-height="1.5">
+      B.Tech Biotechnology student researching the intersection of wet-lab genetics and computational bioinformatics algorithms.
+    </text>
+    <text x="25" y="85" fill="#333333" font-family="-apple-system, sans-serif" font-size="13">
+      Experienced in CRISPR sgRNA design, molecular docking (AutoDock Vina), high-throughput RNA-Seq pipelines (Nextflow, DESeq2), and Python scripting.
+    </text>
+
+    <!-- Top Skills Pills -->
+    <text x="25" y="125" fill="#181818" font-family="-apple-system, sans-serif" font-size="14" font-weight="600">Top Skills:</text>
+    <rect x="105" y="110" width="150" height="24" rx="12" fill="#f3f4f6"/>
+    <text x="180" y="126" fill="#333333" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">CRISPR &amp; Gene Editing</text>
+
+    <rect x="265" y="110" width="130" height="24" rx="12" fill="#f3f4f6"/>
+    <text x="330" y="126" fill="#333333" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Bioinformatics &amp; NGS</text>
+
+    <rect x="405" y="110" width="150" height="24" rx="12" fill="#f3f4f6"/>
+    <text x="480" y="126" fill="#333333" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Molecular Docking (PyMOL)</text>
+
+    <rect x="565" y="110" width="120" height="24" rx="12" fill="#f3f4f6"/>
+    <text x="625" y="126" fill="#333333" font-family="sans-serif" font-size="11" font-weight="600" text-anchor="middle">Python for Science</text>
+  </g>
+
+  <!-- Watermark / Placeholder Notice Overlay -->
+  <g transform="translate(600, 665)">
+    <rect x="-240" y="-18" width="480" height="28" rx="14" fill="#0a66c2" fill-opacity="0.9" stroke="#38bdf8" stroke-width="1"/>
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, sans-serif" font-size="12" font-weight="700" text-anchor="middle">📸 SCREENSHOT PLACEHOLDER — Swap with your real LinkedIn screenshot</text>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="100%" height="100%">
+  <defs>
+    <linearGradient id="certBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <linearGradient id="goldBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="sealGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284c7" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Certificate Outer Border -->
+  <rect x="15" y="15" width="870" height="590" rx="8" fill="url(#certBg)" stroke="url(#goldBorder)" stroke-width="6"/>
+  <rect x="30" y="30" width="840" height="560" rx="4" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="36" y="36" width="828" height="548" rx="4" fill="none" stroke="rgba(2,132,199,0.15)" stroke-width="1"/>
+
+  <!-- Corner Ornaments -->
+  <path d="M40 70 L40 40 L70 40" fill="none" stroke="#0284c7" stroke-width="3"/>
+  <path d="M860 70 L860 40 L830 40" fill="none" stroke="#0284c7" stroke-width="3"/>
+  <path d="M40 550 L40 580 L70 580" fill="none" stroke="#0284c7" stroke-width="3"/>
+  <path d="M860 550 L860 580 L830 580" fill="none" stroke="#0284c7" stroke-width="3"/>
+
+  <!-- Certificate Header -->
+  <text x="450" y="95" fill="#0284c7" font-family="'Space Grotesk', -apple-system, sans-serif" font-size="13" font-weight="700" letter-spacing="4" text-anchor="middle">OFFICIAL ACADEMIC &amp; RESEARCH CREDENTIAL</text>
+  <text x="450" y="145" fill="#0f172a" font-family="'Plus Jakarta Sans', Georgia, serif" font-size="34" font-weight="800" text-anchor="middle" letter-spacing="1">Certificate of Completion</text>
+  <line x1="330" y1="165" x2="570" y2="165" stroke="#38bdf8" stroke-width="2"/>
+
+  <!-- Body Content -->
+  <text x="450" y="205" fill="#64748b" font-family="-apple-system, sans-serif" font-size="14" text-anchor="middle">This is proudly presented and verified to certify that</text>
+  <text x="450" y="260" fill="#0284c7" font-family="'Space Grotesk', sans-serif" font-size="38" font-weight="800" text-anchor="middle">URVIKA</text>
+  <text x="450" y="295" fill="#64748b" font-family="-apple-system, sans-serif" font-size="14" text-anchor="middle">has successfully completed all rigorous curricula and laboratory assessments in</text>
+
+  <!-- Credential Title Box -->
+  <rect x="150" y="320" width="600" height="60" rx="8" fill="#f0f7ff" stroke="rgba(2,132,199,0.25)" stroke-width="1.5"/>
+  <text x="450" y="358" fill="#0369a1" font-family="-apple-system, sans-serif" font-size="20" font-weight="700" text-anchor="middle">Computational Biology &amp; Molecular Genetics</text>
+
+  <text x="450" y="415" fill="#475569" font-family="-apple-system, sans-serif" font-size="13" text-anchor="middle">Demonstrating advanced proficiency in genomics algorithms, CRISPR sgRNA design, and wet-lab analytical pipelines.</text>
+
+  <!-- Seal / Badge in Center Bottom -->
+  <g transform="translate(450, 490)" filter="url(#sealGlow)">
+    <circle cx="0" cy="0" r="42" fill="#0284c7"/>
+    <circle cx="0" cy="0" r="37" fill="#ffffff" fill-opacity="0.15"/>
+    <circle cx="0" cy="0" r="34" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <text x="0" y="-8" fill="#ffffff" font-family="sans-serif" font-size="9" font-weight="800" letter-spacing="1" text-anchor="middle">VERIFIED</text>
+    <text x="0" y="8" fill="#ffffff" font-family="sans-serif" font-size="14">★ ★ ★</text>
+    <text x="0" y="20" fill="#ffffff" font-family="sans-serif" font-size="8" font-weight="700" letter-spacing="1" text-anchor="middle">EXCELLENCE</text>
+  </g>
+
+  <!-- Signatures & Verification Footers -->
+  <g transform="translate(140, 500)">
+    <line x1="0" y1="0" x2="180" y2="0" stroke="#0f172a" stroke-width="1.5"/>
+    <path d="M20 -15 Q 50 -35 80 -10 T 140 -25" fill="none" stroke="#0284c7" stroke-width="2"/>
+    <text x="90" y="18" fill="#0f172a" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">Academic Program Director</text>
+    <text x="90" y="34" fill="#64748b" font-family="sans-serif" font-size="11" text-anchor="middle">Department of Biotechnology</text>
+  </g>
+
+  <g transform="translate(580, 500)">
+    <line x1="0" y1="0" x2="180" y2="0" stroke="#0f172a" stroke-width="1.5"/>
+    <path d="M20 -20 Q 70 -5 100 -25 T 160 -15" fill="none" stroke="#0284c7" stroke-width="2"/>
+    <text x="90" y="18" fill="#0f172a" font-family="sans-serif" font-size="12" font-weight="700" text-anchor="middle">Lead Research Scientist</text>
+    <text x="90" y="34" fill="#64748b" font-family="sans-serif" font-size="11" text-anchor="middle">Genomics &amp; In-Silico Institute</text>
+  </g>
+
+  <!-- Bottom Verification ID -->
+  <text x="450" y="570" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">CREDENTIAL ID: PLACEHOLDER-CERT-2025 • GOOGLE DRIVE / CLOUD STORAGE BACKED</text>
+</svg>

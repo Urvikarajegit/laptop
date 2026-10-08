@@ -1,0 +1,555 @@
+<%- include('partials/header') %>
+<%- include('partials/cursor') %>
+<%- include('partials/nav') %>
+
+<main id="smooth-wrapper">
+  <div id="smooth-content">
+
+    <!-- ========================================================================= -->
+    <!-- 1. HERO SECTION (Split Text on One Side, Interactive DNA Canvas on the Other) -->
+    <!-- ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-ambient-glow"></div>
+
+      <div class="container hero-container">
+        <div class="hero-grid">
+          
+          <!-- Hero Left: Split Text & Bio Content -->
+          <div class="hero-content">
+            <div class="hero-badge reveal-fade">
+              <span class="badge-icon">🔬</span>
+              <span class="badge-text"><%= student.status %></span>
+            </div>
+
+            <!-- GSAP Split Text Target (One side split reveal) -->
+            <h1 class="hero-title split-text-hero">
+              Where <span class="text-gradient">Biology</span> Meets <span class="text-gradient-alt">Innovation.</span>
+            </h1>
+
+            <p class="hero-subtitle split-text-bio">
+              I’m <strong class="text-dark"><%= student.name %></strong>, a Biotechnology undergraduate bridging laboratory science with technology. Exploring molecular biology, microbiology, genetic engineering &amp; computational biotechnology through research, projects and laboratory experience.
+              <span class="hero-motto-line">Curious about biology. Driven by research. Building with technology.</span>
+            </p>
+
+            <div class="hero-cta-group reveal-fade">
+              <a href="#projects" class="btn btn-primary magnetic-item" data-cursor="PROJECTS">
+                <i class="fa-solid fa-flask-vial"></i>
+                <span>Projects & Reports</span>
+              </a>
+              <a href="#internships" class="btn btn-outline magnetic-item" data-cursor="INTERNSHIPS">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Internships</span>
+              </a>
+              <a href="#certificates" class="btn btn-outline magnetic-item" data-cursor="CERTIFICATES">
+                <i class="fa-solid fa-award"></i>
+                <span>Certificates</span>
+              </a>
+              <a href="#about" class="btn btn-text magnetic-item" data-cursor="ABOUT">
+                <span>About Urvika</span>
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </a>
+            </div>
+
+            <!-- Quick Live Metric Counters -->
+            <div class="hero-stats-row reveal-fade">
+              <% student.stats.forEach(stat => { %>
+                <div class="hero-stat-card">
+                  <div class="stat-number-wrap">
+                    <span class="stat-value counter-value" data-target="<%= stat.value.replace(/[^0-9.]/g, '') %>"><%= stat.value %></span>
+                    <% if (stat.value.includes('+')) { %><span class="stat-plus">+</span><% } %>
+                  </div>
+                  <span class="stat-label"><%= stat.label %></span>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+
+          <!-- Hero Right: Interactive 3D/2D DNA Double Helix Canvas -->
+          <div class="hero-visual">
+            <div class="dna-canvas-card">
+              <div class="dna-card-header">
+                <div class="dna-card-title">
+                  <span class="live-dot"></span>
+                  <span>Interactive DNA Helix Visualizer</span>
+                </div>
+                <div class="dna-card-controls">
+                  <button class="dna-toggle-btn" id="dnaSpeedBtn" title="Toggle Rotation Speed">
+                    <i class="fa-solid fa-gauge-high"></i>
+                  </button>
+                  <button class="dna-toggle-btn" id="dnaResetBtn" title="Reset Camera">
+                    <i class="fa-solid fa-rotate-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <div class="dna-canvas-wrapper">
+                <canvas id="heroDnaCanvas"></canvas>
+                
+                <!-- Floating Micro Lab Badges -->
+                <div class="floating-badge badge-top-right">
+                  <i class="fa-solid fa-code"></i>
+                  <span>Biopython & BLAST</span>
+                </div>
+                <div class="floating-badge badge-bottom-left">
+                  <i class="fa-solid fa-scissors"></i>
+                  <span>CRISPR-Cas9 sgRNA</span>
+                </div>
+              </div>
+
+              <div class="dna-card-footer">
+                <div class="dna-sequence-preview" id="liveHeroSeq">
+                  <span class="seq-label">Active Strand:</span>
+                  <span class="seq-bases">5'- <span class="base-a">A</span><span class="base-t">T</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-a">A</span><span class="base-a">A</span><span class="base-g">G</span><span class="base-c">C</span><span class="base-t">T</span><span class="base-g">G</span><span class="base-a">A</span><span class="base-t">T</span> -3'</span>
+                </div>
+                <span class="canvas-hint"><i class="fa-regular fa-hand-pointer"></i> Drag to rotate helix</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="scroll-indicator magnetic-item" data-cursor="SCROLL">
+        <span class="scroll-mouse">
+          <span class="scroll-wheel"></span>
+        </span>
+        <span class="scroll-text">Scroll Down</span>
+      </a>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2. ABOUT SECTION (Student Bio, Image Reveal, Daily Life & Mission) -->
+    <!-- ========================================================================= -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 32px;">
+          <div class="section-tag-wrap" style="margin-bottom: 0;">
+            <span class="section-tag"><i class="fa-solid fa-user-graduate"></i> Academic Profile</span>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Left: Lab Image / Student Persona Card with GSAP Reveal -->
+          <div class="about-image-col">
+            <div class="about-card-container">
+              <div class="about-img-frame image-transition-reveal">
+                <img src="/images/ukr.jpeg" alt="Urvika Raje - Biotechnology Undergraduate" class="about-img" loading="lazy">
+                <div class="img-overlay-badge">
+                  <div class="img-badge-icon">🧬</div>
+                  <div>
+                    <strong>Urvika Raje</strong>
+                    <span>B.Tech Biotech Undergrad</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Student Academic ID Badge Card -->
+              <div class="student-id-card">
+                <div class="id-header">
+                  <span class="id-university">🏫 School of Engineering &amp; Technology</span>
+                </div>
+                <div class="id-body">
+                  <div class="id-item">
+                    <span class="id-label">Branch</span>
+                    <span class="id-val">Biotechnology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Bio Narrative, Research Passions & Coursework -->
+          <div class="about-text-col">
+            <div class="about-narrative">
+              <h3 class="about-subheading split-text-about-title">A glimpse into my academic journey</h3>
+              <p class="split-text-about">
+                I am a B.Tech Biotechnology student with a growing interest in molecular biology, microbiology, genetic engineering, and the application of computational approaches to biological research. My academic and laboratory experience has introduced me to microbiological techniques, biochemical analysis, scientific literature, and laboratory-based investigation. I am particularly interested in areas such as CRISPR, genetic engineering, antimicrobial resistance, bioinformatics, and AI-assisted biotechnology.
+              </p>
+              <p class="split-text-about">
+                Alongside laboratory science, I enjoy scientific communication and research-oriented writing, with a particular interest in translating complex biological concepts into clear, accessible explanations through presentations, reports, and visual content.
+              </p>
+              <p class="split-text-about">
+                I also have an interest in technology and digital tools, and enjoy exploring how they can complement scientific work. My technical experience includes Python, Java, HTML, CSS, data analysis, UI/UX design, Figma, Canva, generative AI tools, AI-assisted productivity, and workflow automation using n8n. I am particularly interested in developing the intersection between biotechnology, computational tools, artificial intelligence, and digital innovation.
+              </p>
+              <p class="split-text-about">
+                I am continuously expanding my skills across molecular biology, microbiology, bioinformatics, data analysis, programming, scientific communication, and AI tools, with the long-term aim of contributing to research and innovation at the intersection of biotechnology and emerging technologies.
+              </p>
+            </div>
+
+            <!-- Core Research Passions Tags -->
+            <div class="interests-container">
+              <h4 class="mini-title"><i class="fa-solid fa-atom"></i> Research Passions</h4>
+              <div class="interests-tags">
+                <% student.bio.interests.forEach(interest => { %>
+                  <span class="interest-tag magnetic-item" data-cursor="TOPIC">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <%= interest %>
+                  </span>
+                <% }) %>
+              </div>
+            </div>
+
+            <!-- Academic Institutions (University & School) -->
+            <div class="education-institutions-box">
+              <h4 class="mini-title"><i class="fa-solid fa-building-columns"></i> Academic Background &amp; Institutions</h4>
+              <div class="education-cards-grid">
+                <% (student.education || []).forEach(edu => { %>
+                  <div class="education-card">
+                    <div class="education-card-img-wrap">
+                      <img src="<%= edu.image %>" alt="<%= edu.institution %> campus" class="education-card-img" loading="lazy" />
+                    </div>
+                    <% if (edu.badge) { %>
+                      <div class="education-card-badge-bar">
+                        <i class="fa-solid fa-certificate"></i>
+                        <span><%= edu.badge %></span>
+                      </div>
+                    <% } %>
+                    <div class="education-card-body">
+                      <div class="education-card-header">
+                        <div class="education-type-pill"><i class="fa-solid fa-graduation-cap"></i> <%= edu.type %></div>
+                        <span class="education-period"><i class="fa-regular fa-calendar"></i> <%= edu.period %></span>
+                      </div>
+                      <h3 class="education-institution-name"><%= edu.institution %></h3>
+                      <% if (edu.degree) { %>
+                        <div class="education-degree-line"><%= edu.degree %></div>
+                      <% } %>
+                      <div class="education-school-sub"><i class="fa-solid fa-location-dot"></i> <%= edu.school %> • <%= edu.location %></div>
+                      <ul class="education-highlights-list">
+                        <% edu.highlights.forEach(h => { %>
+                          <li><i class="fa-solid fa-circle-check"></i> <span><%= h %></span></li>
+                        <% }) %>
+                      </ul>
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- CERTIFICATES & CREDENTIALS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="section certificates-section" id="certificates">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag-wrap">
+            <span class="section-tag cert-section-tag"><i class="fa-solid fa-award"></i> Verified Credentials</span>
+          </div>
+          <h2 class="section-title split-text-section">Certificates & Accreditations</h2>
+          <p class="section-desc">Click any certificate to preview in full resolution, or open the verified document directly.</p>
+        </div>
+
+        <div class="certificates-grid">
+          <% (student.certificates || []).forEach((cert) => { %>
+            <div class="cert-card cert-card-clickable"
+                 data-title="<%= cert.title %>"
+                 data-issuer="<%= cert.issuer %>"
+                 data-platform="<%= cert.platform %>"
+                 data-date="<%= cert.issueDate %>"
+                 data-id="<%= cert.credentialId %>"
+                 data-badge="<%= cert.badge %>"
+                 data-image="<%= cert.previewImage %>"
+                 data-file="<%= cert.fileUrl || cert.googleDriveUrl %>"
+                 data-drive="<%= cert.googleDriveUrl %>"
+                 data-verify="<%= cert.verificationUrl || '' %>"
+                 data-skills='<%= JSON.stringify(cert.skills) %>'
+                 title="Click for full size preview">
+              
+              <div class="cert-card-top">
+                <div class="cert-icon-wrapper">
+                  <i class="fa-solid <%= cert.icon %>"></i>
+                </div>
+                <div class="cert-badge-wrapper">
+                  <span class="cert-badge-pill"><%= cert.badge %></span>
+                  <span class="cert-year"><i class="fa-regular fa-calendar"></i> <%= cert.issueDate %></span>
+                </div>
+              </div>
+
+              <!-- Certificate Preview Thumbnail -->
+              <div class="cert-thumb-preview">
+                <img src="<%= cert.previewImage %>" alt="<%= cert.title %> thumbnail" class="cert-thumb-img" />
+                <span class="cert-thumb-overlay"><i class="fa-solid fa-expand"></i> Preview</span>
+              </div>
+
+              <h3 class="cert-title"><%= cert.title %></h3>
+              <div class="cert-issuer">
+                <i class="fa-solid fa-building-columns mr-1"></i>
+                <span><%= cert.issuer %> <%= cert.platform ? `(${cert.platform})` : '' %></span>
+              </div>
+
+              <div class="cert-skills-list">
+                <% cert.skills.forEach(skill => { %>
+                  <span class="cert-skill-tag"><%= skill %></span>
+                <% }) %>
+              </div>
+
+              <div class="cert-card-footer">
+                <button type="button" class="btn-cert-quicklook open-cert-modal-btn" title="Quick Preview">
+                  <i class="fa-solid fa-expand"></i> Preview
+                </button>
+                <a href="<%= cert.fileUrl || cert.googleDriveUrl %>" target="_blank" rel="noopener noreferrer" class="btn-cert-drive stop-modal-prop" title="View Full Document">
+                  <i class="fa-solid fa-file-lines"></i> <%= cert.fileUrl && cert.fileUrl.endsWith('.pdf') ? 'View PDF Document' : 'View Full Certificate' %> <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                </a>
+                
+                <% if (cert.verificationUrl) { %>
+                  <a href="<%= cert.verificationUrl %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-xs stop-modal-prop" title="Verify Online">
+                    <i class="fa-solid fa-shield-halved"></i> Verify
+                  </a>
+                <% } %>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 3. PROJECTS & RESEARCH REPORTS SECTION -->
+    <!-- ========================================================================= -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag-wrap">
+            <span class="section-tag"><i class="fa-solid fa-flask-vial"></i> Verified Research & Reports</span>
+          </div>
+          <h2 class="section-title split-text-section">Projects & Research Reports</h2>
+          <p class="section-desc">Academic research monographs, clinical diagnostic reports, and in-silico computational biology tools.</p>
+        </div>
+
+        <div class="projects-grid">
+          <% (student.projects || []).forEach(project => { %>
+            <div class="project-card">
+              <div class="project-img-wrapper">
+                <img src="<%= project.image %>" alt="<%= project.title %> cover preview" class="project-img" loading="lazy" />
+                <span class="project-category-tag"><%= project.category %></span>
+                <% if (project.badge) { %>
+                  <span class="project-badge-pill"><%= project.badge %></span>
+                <% } %>
+                <div class="project-hover-overlay">
+                  <a href="<%= project.reportPdf || project.link %>" target="_blank" rel="noopener noreferrer" class="overlay-action-btn">
+                    <i class="fa-solid fa-file-pdf mr-1"></i> Read Report PDF
+                  </a>
+                </div>
+              </div>
+
+              <div class="project-card-body">
+                <span class="project-subtitle"><%= project.subtitle %></span>
+                <h3 class="project-title"><%= project.title %></h3>
+                <p class="project-desc"><%= project.description %></p>
+
+                <% if (project.highlights && project.highlights.length) { %>
+                  <ul class="project-highlights">
+                    <% project.highlights.slice(0, 3).forEach(hl => { %>
+                      <li><i class="fa-solid fa-check-circle"></i> <span><%= hl %></span></li>
+                    <% }) %>
+                  </ul>
+                <% } %>
+
+                <% if (project.metrics) { %>
+                  <div class="project-metric-box">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span><%= project.metrics %></span>
+                  </div>
+                <% } %>
+
+                <div class="project-tools">
+                  <% (project.tools || []).forEach(tool => { %>
+                    <span class="tool-tag"><%= tool %></span>
+                  <% }) %>
+                </div>
+
+                <div class="project-card-footer">
+                  <% if (project.reportPdf) { %>
+                    <a href="<%= project.reportPdf %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary-sm btn-full-report" title="Read Full Research Report PDF">
+                      <i class="fa-solid fa-file-pdf"></i> Read Full Research Report <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 4. LINKEDIN SHOWCASE SECTION -->
+    <!-- ========================================================================= -->
+    <% 
+      const li = (student.socialPreviews && student.socialPreviews.linkedin) ? student.socialPreviews.linkedin : {
+        name: student.name || 'Urvika Raje',
+        username: 'urvikaraje',
+        url: student.linkedin || 'https://www.linkedin.com/in/urvikaraje',
+        screenshot: '/images/linkedin-cover.jpeg',
+        headline: 'Biotechnology Undergraduate | Computational Biology & CRISPR Researcher',
+        location: 'India • 500+ Connections',
+        stats: { connections: '500+ Connections', followers: '650+ Followers' }
+      };
+    %>
+    <section class="section showcase-section linkedin-section" id="linkedin">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag-wrap">
+            <span class="section-tag linkedin-tag"><i class="fa-brands fa-linkedin-in"></i> Professional Network</span>
+          </div>
+          <h2 class="section-title split-text-section">LinkedIn Profile & Network</h2>
+          <p class="section-desc">Academic milestones, wet-bench laboratory updates, conference abstracts, and scientific connections.</p>
+        </div>
+
+        <div class="social-showcase-card">
+          <!-- Window Top Bar Mockup -->
+          <div class="showcase-window-bar">
+            <div class="window-controls">
+              <span class="control-dot dot-red"></span>
+              <span class="control-dot dot-yellow"></span>
+              <span class="control-dot dot-green"></span>
+            </div>
+            <div class="window-url-bar">
+              <i class="fa-solid fa-lock text-success mr-1"></i>
+              <span>www.linkedin.com/in/<%= li.username || 'urvikaraje' %></span>
+            </div>
+            <div class="window-actions">
+              <a href="<%= li.url %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-xs">
+                <i class="fa-brands fa-linkedin"></i> Open LinkedIn <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Account Stats & Profile Banner -->
+          <div class="showcase-profile-strip">
+            <div class="strip-left">
+              <div class="strip-avatar linkedin-avatar-box">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </div>
+              <div class="strip-info">
+                <h3 class="strip-name"><%= student.name %> <span class="badge-verified"><i class="fa-solid fa-circle-check text-primary"></i></span></h3>
+                <p class="strip-headline"><%= li.headline %></p>
+              </div>
+            </div>
+            <div class="strip-stats">
+              <div class="stat-pill"><i class="fa-solid fa-user-group text-primary"></i> <%= li.stats.connections %></div>
+              <div class="stat-pill"><i class="fa-solid fa-users text-primary"></i> <%= li.stats.followers %></div>
+              <div class="stat-pill"><i class="fa-solid fa-location-dot text-muted"></i> <%= li.location %></div>
+            </div>
+          </div>
+
+          <!-- Screenshot / Image Display Area -->
+          <div class="showcase-screenshot-wrap">
+            <% if (li.screenshot && li.screenshot.includes('placeholder')) { %>
+            <div class="screenshot-placeholder-badge">
+              <span class="badge-pill linkedin-pill"><i class="fa-solid fa-camera"></i> Screenshot Placeholder</span>
+              <span class="badge-hint">Place your actual LinkedIn screenshot at <code><%= li.screenshot %></code></span>
+            </div>
+            <% } %>
+            <a href="<%= li.url %>" target="_blank" rel="noopener noreferrer" class="screenshot-link" title="Click to view live LinkedIn profile">
+              <img src="<%= li.screenshot %>" alt="LinkedIn Cover of <%= student.name %>" class="showcase-screenshot-img" />
+              <div class="screenshot-hover-overlay">
+                <div class="overlay-content">
+                  <span class="overlay-btn btn btn-primary"><i class="fa-brands fa-linkedin mr-1"></i> Visit LinkedIn Profile <i class="fa-solid fa-external-link ml-1"></i></span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Bottom Action Bar with Small Redirect Button -->
+          <div class="showcase-footer">
+            <div class="footer-note">
+              <i class="fa-solid fa-circle-info"></i>
+              <span>Available for undergraduate research internships, computational genomics collaborations, and laboratory projects.</span>
+            </div>
+            <a href="<%= li.url %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary-sm">
+              <i class="fa-brands fa-linkedin mr-1"></i> Visit LinkedIn Account <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 5. INTERNSHIPS & RESEARCH EXPERIENCE SECTION -->
+    <!-- ========================================================================= -->
+    <section class="section internships-section" id="internships">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag-wrap">
+            <span class="section-tag intern-tag"><i class="fa-solid fa-briefcase"></i> Work & Research Experience</span>
+          </div>
+          <h2 class="section-title split-text-section">Internships & Practical Training</h2>
+          <p class="section-desc">Hands-on laboratory internships, computational genomics pipelines, and research fellowships.</p>
+        </div>
+
+        <div class="internships-grid">
+          <% (student.internships || []).forEach((intern) => { %>
+            <div class="intern-card">
+              <div class="intern-card-header">
+                <div class="intern-header-left">
+                  <div class="intern-icon-box"><%= intern.logo %></div>
+                  <div>
+                    <span class="intern-type-pill"><%= intern.type %></span>
+                    <h3 class="intern-role"><%= intern.role %></h3>
+                    <p class="intern-org"><i class="fa-solid fa-building-columns mr-1"></i> <%= intern.organization %></p>
+                  </div>
+                </div>
+                <div class="intern-meta-right">
+                  <span class="intern-duration"><i class="fa-regular fa-calendar"></i> <%= intern.duration %></span>
+                  <span class="intern-location"><i class="fa-solid fa-location-dot"></i> <%= intern.location %></span>
+                </div>
+              </div>
+
+              <p class="intern-summary"><%= intern.summary %></p>
+
+              <h4 class="intern-subhead"><i class="fa-solid fa-list-check mr-1 text-primary"></i> Key Contributions & Deliverables</h4>
+              <ul class="intern-responsibilities">
+                <% intern.responsibilities.forEach(r => { %>
+                  <li><i class="fa-solid fa-circle-check text-primary"></i> <span><%= r %></span></li>
+                <% }) %>
+              </ul>
+
+              <div class="intern-skills-wrap">
+                <% intern.skills.forEach(s => { %>
+                  <span class="intern-skill-tag"><%= s %></span>
+                <% }) %>
+              </div>
+
+              <div class="intern-card-footer">
+                <span class="intern-verified-text"><i class="fa-solid fa-circle-check text-success"></i> Completion Verified</span>
+                <div class="intern-footer-actions">
+                  <% if (intern.reportUrl && intern.reportUrl !== '#') { %>
+                    <a href="<%= intern.reportUrl %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-xs" title="Read Internship Report PDF">
+                      <i class="fa-solid fa-file-pdf"></i> Report PDF <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                  <% } %>
+                  <% if (intern.certificateUrl) { %>
+                    <a href="<%= intern.certificateUrl %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-xs" title="View Internship Certificate">
+                      <i class="fa-solid fa-award"></i> Certificate <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                  <% } else if (intern.googleDriveUrl) { %>
+                    <a href="<%= intern.googleDriveUrl %>" target="_blank" rel="noopener noreferrer" class="btn btn-outline-xs" title="Open Documents">
+                      <i class="fa-brands fa-google-drive"></i> Documents <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                    </a>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<%- include('partials/footer') %>

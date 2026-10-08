@@ -1,0 +1,76 @@
+<!-- Top Navigation Bar -->
+<header class="site-header" id="siteHeader">
+  <div class="nav-container">
+    <!-- Brand / Student Name -->
+    <a href="#hero" class="nav-brand">
+      <div class="brand-dna-icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 15c6.667-6 13.333 0 20-6"></path>
+          <path d="M9 22c1.798-1.998 2.518-3.995 2.807-5.993"></path>
+          <path d="M15 2c-1.798 1.998-2.518 3.995-2.807 5.993"></path>
+          <path d="m17 6-2.5-2.5"></path>
+          <path d="m14 8-1-1"></path>
+          <path d="m7 18 2.5 2.5"></path>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Urvika<span class="brand-accent">.bio</span></span>
+        <span class="brand-tagline">Undergrad Portfolio</span>
+      </div>
+    </a>
+
+    <!-- Main Navigation Links (Central Navbar) -->
+    <nav class="nav-menu" id="navMenu">
+      <ul class="nav-list">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link" id="openContactBtn">Contact</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#projects" class="nav-link">Projects & Reports</a></li>
+        <li><a href="#linkedin" class="nav-link"><i class="fa-brands fa-linkedin-in mr-1"></i> LinkedIn</a></li>
+        <li><a href="#internships" class="nav-link">Internships</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right Actions: Theme Toggle, CV/Resume -->
+    <div class="nav-actions">
+      <!-- Dark / Light Mode Toggle Button -->
+      <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Dark and Light Mode" title="Toggle Dark/Light Mode">
+        <i class="fa-solid fa-moon theme-icon-moon"></i>
+        <i class="fa-solid fa-sun theme-icon-sun"></i>
+      </button>
+
+      <!-- Interactive Resume Download / View Modal Button -->
+      <button class="btn btn-outline-sm nav-cv-btn" id="openResumeBtn">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>CV / Resume</span>
+      </button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <ul class="mobile-nav-list">
+      <li><a href="#about" class="mobile-nav-link">About</a></li>
+      <li><a href="#contact" class="mobile-nav-link" id="mobileOpenContactBtn">Contact</a></li>
+      <li><a href="#certificates" class="mobile-nav-link">Certificates</a></li>
+      <li><a href="#projects" class="mobile-nav-link">Projects & Reports</a></li>
+      <li><a href="#linkedin" class="mobile-nav-link">LinkedIn <i class="fa-brands fa-linkedin ml-1"></i></a></li>
+      <li><a href="#internships" class="mobile-nav-link">Internships</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="btn btn-outline w-full mb-2 mobile-theme-btn" id="mobileThemeToggleBtn">
+        <i class="fa-solid fa-moon theme-icon-moon"></i>
+        <i class="fa-solid fa-sun theme-icon-sun"></i>
+        <span class="mobile-theme-text">Switch Mode</span>
+      </button>
+      <button class="btn btn-outline w-full mb-2" id="mobileOpenResumeBtn"><i class="fa-solid fa-file-lines"></i> CV / Resume</button>
+    </div>
+  </div>
+</header>
