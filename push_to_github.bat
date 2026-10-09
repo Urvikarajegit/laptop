@@ -1,6 +1,7 @@
 @echo off
 title Push to GitHub
 cd /d "%~dp0"
+set "PATH=%LOCALAPPDATA%\Microsoft\WindowsApps;%LOCALAPPDATA%\Programs\Git Credential Manager;%PATH%"
 
 echo =========================================================
 echo   Pushing to https://github.com/Urvikarajegit/laptop.git
